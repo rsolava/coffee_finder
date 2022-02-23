@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import en_core_web_sm
 
 import re
 import string
@@ -46,7 +47,6 @@ if "iter" not in st.session_state:
     st.session_state["shop_df"] = pickle.load( open("shop_df.p","rb"))
     st.session_state["cv"] = pickle.load(open("cv.p","rb"))
     st.session_state["lda"] = pickle.load(open("lda.p","rb"))
-    st.session_state["nlp"] = pickle.load(open("nlp.p","rb"))
 
 else:
     st.session_state.iter += 1
@@ -58,7 +58,7 @@ shop_df = st.session_state.shop_df
 shop_top_df = shop_df.drop(columns = ["RATING","SHOP"])
 cv = st.session_state.cv
 lda = st.session_state.lda
-nlp = st.session_state.nlp
+nlp = en_core_web_sm.load()
 
 text = st.text_area("Enter a description of your ideal coffee shop here!")
 
