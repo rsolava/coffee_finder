@@ -46,17 +46,19 @@ if "iter" not in st.session_state:
     st.session_state["shop_df"] = pickle.load( open("shop_df.p","rb"))
     st.session_state["cv"] = pickle.load(open("cv.p","rb"))
     st.session_state["lda"] = pickle.load(open("lda.p","rb"))
+    st.session_state["nlp"] = pickle.load(open("nlp.p","rb"))
 
 else:
     st.session_state.iter += 1
 
 
-nlp = spacy.load("./en_core_web_sm")
+
 
 shop_df = st.session_state.shop_df
 shop_top_df = shop_df.drop(columns = ["RATING","SHOP"])
 cv = st.session_state.cv
 lda = st.session_state.lda
+nlp = st.session_state.lda
 
 text = st.text_area("Enter a description of your ideal coffee shop here!")
 
