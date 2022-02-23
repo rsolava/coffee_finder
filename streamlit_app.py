@@ -58,7 +58,7 @@ shop_df = st.session_state.shop_df
 shop_top_df = shop_df.drop(columns = ["RATING","SHOP"])
 cv = st.session_state.cv
 lda = st.session_state.lda
-nlp = st.session_state.lda
+nlp = st.session_state.nlp
 
 text = st.text_area("Enter a description of your ideal coffee shop here!")
 
