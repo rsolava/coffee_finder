@@ -51,7 +51,7 @@ else:
     st.session_state.iter += 1
 
 
-nlp = spacy.load("en_core_web_sm")
+nlp = spacy.load("./en_core_web_sm")
 
 shop_df = st.session_state.shop_df
 shop_top_df = shop_df.drop(columns = ["RATING","SHOP"])
